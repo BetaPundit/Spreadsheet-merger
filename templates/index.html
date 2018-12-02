@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<title>Parallax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel='stylesheet' href="{{ url_for('static', filename='../static/css/bootstrap.css') }}">
+<link rel='stylesheet' href="{{ url_for('static', filename='../static/css/style.css') }}">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+<link rel='stylesheet' href="{{ url_for('static', filename='../static/css/parallax.css') }}">
+
+<body>
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar w3-padding w3-large nav" id="navbar">
+      <a class="w3-bar-item w3-button w3-hover-none w3-hide-medium w3-hide-large w3-right" 
+      data-toggle="collapse"
+      data-target="#navbarResponsive" 
+      aria-controls="navbarResponsive" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation">
+        <i class="fa fa-bars w3-xlarge"></i>
+      </a>
+      <a href="#home" class="w3-bar-item w3-button w3-hover-pink">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button w3-hide-small w3-hover-pink"> ABOUT</a>
+      <a href="#upload" class="w3-bar-item w3-button w3-hide-small w3-hover-pink"> UPLOAD</a>
+      <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-pink"> CONTACT</a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div class="w3-container w3-bar-block w3-pink w3-hide-large w3-hide-medium w3-nav-drop">
+      <div class="collapse" id="navbarResponsive">
+        <ul class="w3-container w3-padding-32">
+          <li class="w3-button  w3-hover-pink" style="text-align:left; width:100%;">
+            <a class="js-scroll-trigger w3-text-grey" 
+            href="#about" data-toggle="collapse" 
+            data-target="#navbarResponsive"
+              aria-controls="navbarResponsive" 
+              aria-expanded="false" 
+              aria-label="Toggle navigation">
+              <i class="fa fa-user w3-large w3-margin-left w3-margin-right"></i>
+              ABOUT</a>
+          </li>
+          <li class="w3-button w3-hover-pink" style="text-align:left; width:100%;">
+            <a class="js-scroll-trigger w3-text-grey" 
+            href="#team" data-toggle="collapse" 
+            data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
+              <i class="fa fa-th w3-large w3-margin-left w3-margin-right"></i>
+              TEAM</a>
+          </li>
+          <li class="w3-button w3-hover-pink" style="text-align:left; width:100%;">
+            <a class="js-scroll-trigger w3-text-grey" 
+            href="#contact" data-toggle="collapse" 
+            data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
+              <i class="fa fa-envelope w3-large w3-margin-left w3-margin-right"></i>
+              CONTACT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="parallax" id="parallax" onscroll="dropNav()">
+    <div class="parallax__layer parallax__layer__0">
+      <img src="{{ url_for('static', filename='../static/img/layer_0.png') }}" />
+    </div>
+    <div class="parallax__layer parallax__layer__1">
+      <img src="{{ url_for('static', filename='../static/img/layer_1.png') }}" />
+    </div>
+    <div class="parallax__layer parallax__layer__2">
+      <img src="{{ url_for('static', filename='../static/img/layer_2.png') }}" />
+    </div>
+    <div class="parallax__layer parallax__layer__3">
+      <img src="{{ url_for('static', filename='../static/img/layer_3.png') }}" />
+    </div>
+    <div class="parallax__layer parallax__layer__4">
+      <img src="{{ url_for('static', filename='../static/img/layer_4.png') }}" />
+    </div>
+    <!-- <div class="parallax__layer parallax__layer__5">
+      <img src="{{ url_for('static', filename='../static/img/robo_large.png') }}" style="height:500px; left: 1280px;" />
+    </div> -->
+    <div class="parallax__layer parallax__layer__5">
+      <img src="{{ url_for('static', filename='../static/img/layer_5.png') }}" />
+    </div>
+    <div class="parallax__layer parallax__layer__6">
+      <img src="{{ url_for('static', filename='../static/img/layer_6.png') }}" />
+    </div>
+    <div class="parallax__cover w3-container w3-padding-large w3-padding-32 w3-mobile">
+      <div class="w3-mobile" style="padding-left: 900px;">
+        <br>
+        <p class="w3-text-pink" style="font-size:2.3em" id="upload" >Choose Files</p>
+        <br>
+
+        <form class="w3-container w3-content" 
+        action="http://localhost:5000/upload" 
+        method="POST" 
+        enctype="multipart/form-data"
+        style="color: aliceblue;">
+            
+          <label style="font-size:1.3em; font-weight: 100">Upload Spreadsheets</label>
+          <input class="w3-input" type="file" name="file[]">
+          <br>
+          <label style="font-size:1.3em; font-weight: 100">Spreadsheet 2</label>
+          <input class="w3-input" type="file" name="file[]">
+          <br>
+          <input class="w3-button w3-xlarge" type="submit" value="upload"/>
+          </form>
+      </div>  
+    </div>
+
+    <script>
+      function dropNav() {
+        var navbar = document.getElementById("navbar");
+        var parallax = document.getElementById("parallax");
+        if (parallax.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+          navbar.className = "w3-bar" + " w3-card" + " w3-animate-opacity" + " w3-pink" + " w3-large" + " w3-padding" +
+            " navbar-expand-lg" + " nav";
+        } else {
+          navbar.className = navbar.className.replace(" w3-card w3-animate-opacity w3-pink", "");
+        }
+      }
+    </script>
+    <script src="{{ url_for('static', filename='../static/js/jquery-1.10.2.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='../static/js/bootstrap.min.js') }}" type="text/javascript"></script>
+
+</body>
+
+</html>
